@@ -1,0 +1,36 @@
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 1.creating a sample dataset !.
+
+data = {
+    'Product': ['Laptop', 'Mobile', 'Laptop', 'Tablet', 'Mobile', None, 'Tablet'],
+    'Sales': [50000, 20000, 50000, 15000, None, 10000, 15000],
+    'Date': ['2026-01-01', '2026-01-02', '2026-01-01', '2026-01-03', '2026-01-04', '2026-01-05', '2026-01-03']
+}
+
+df = pd.DataFrame(data)
+print("--- before cleaning the data ---")
+print(df)
+print("\n")
+
+# 2. Data Cleaning - removing duplicate data!.
+
+df = df.drop_duplicates()
+
+# 3. Data Cleaning - replacing the value (None) in  empty sapces!.
+
+df['Product'] = df['Product'].fillna('Unknown')
+df['Sales'] = df['Sales'].fillna(df['Sales'].mean()) 
+
+print("--- after cleaning the data---")
+print(df)
+
+# 4. Visualization - ploting data for visual !.
+
+plt.figure(figsize=(8,5))
+sns.barplot(x='Product', y='Sales', data=df, palette='viridis')
+plt.title('Product vs Sales (Cleaned Data)')
+plt.show()
