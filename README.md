@@ -4,6 +4,24 @@ Data Analyst Internship Project at DecodeLabs. This repository showcases data cl
 
 # DecodeLabs Data Analyst Internship Project
 
+## Technologies Used
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SQL
+
+## Skills Gained
+- Data Cleaning
+- Data Visualization
+- Exploratory Data Analysis (EDA)
+- SQL Querying
+- Data Interpretation
+
+## Internship Organization
+DecodeLabs
+
 ## Project 1: Data Cleaning & Visualization
 
 ### Dashboard 1
