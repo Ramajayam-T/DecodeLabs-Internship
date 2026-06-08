@@ -1,0 +1,21 @@
+# 1. Correlation Heatmap - To see how columns relate to each other
+
+plt.figure(figsize=(10, 8))
+correlation_matrix = df_cleaned.select_dtypes(include=['number']).corr()
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Correlation Heatmap of Features')
+plt.show()
+
+# 2. Distribution Plot - To see the spread of a specific column
+
+# Replace 'median_income' with a column name from your dataset
+target_column = df_cleaned.select_dtypes(include=['number']).columns[0]
+plt.figure(figsize=(8, 5))
+sns.histplot(df_cleaned[target_column], kde=True, color='blue')
+plt.title(f'Distribution of {target_column}')
+plt.show()
+
+# 3. Saving the Cleaned Data
+
+df_cleaned.to_csv('cleaned_project_data.csv', index=False)
+print("Success! Your cleaned data is saved as 'cleaned_project_data.csv'")
