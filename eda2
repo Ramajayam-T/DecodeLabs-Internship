@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+np.random.seed(10)
+data = {
+    'Category': np.random.choice(['Electronics', 'Fashion', 'Home Decor', 'Groceries'], 500),
+    'Sales_Amount': np.random.randint(500, 5000, 500),
+    'Profit': np.random.randint(-200, 1000, 500),
+    'Region': np.random.choice(['North', 'South', 'East', 'West'], 500),
+    'Customer_Rating': np.random.uniform(1, 5, 500)
+}
+df = pd.DataFrame(data)
+
+# 3. Profit Distribution by Region (Pie Chart)
+
+region_profit = df.groupby('Region')['Profit'].sum()
+plt.figure(figsize=(7, 7))
+plt.pie(region_profit, labels=region_profit.index, autopct='%1.1f%%', colors=['#ff9999','#66b3ff','#99ff99','#ffcc99'], startangle=140)
+plt.title('Profit Distribution by Region (Pie Chart)')
+plt.show()
+
+# 4. Correlation Analysis (Heatmap)
+
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(df.select_dtypes(include=[np.number]).corr(), annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Feature Correlation Map (Heatmap)')
+plt.show()
