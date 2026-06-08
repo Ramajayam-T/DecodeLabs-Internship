@@ -1,0 +1,9 @@
+## Project Story
+
+During my Data Analyst Internship at DecodeLabs, I had the opportunity to work on real-world datasets and experience the complete data analysis workflow. The project began with understanding the dataset and identifying data quality issues that could affect the accuracy of the analysis. I carefully examined the data, detected missing values, duplicate records, and inconsistencies, and performed data cleaning to ensure reliable results.
+
+Once the data was prepared, I conducted Exploratory Data Analysis (EDA) to gain a deeper understanding of the dataset. By analyzing patterns, trends, distributions, and relationships between variables, I was able to uncover valuable insights hidden within the data. This stage helped me understand how raw data can be transformed into meaningful information that supports decision-making.
+
+To communicate these insights effectively, I created various visualizations using Python libraries such as Pandas, Matplotlib, and Seaborn. The dashboards and charts made complex data easier to interpret and allowed key findings to be presented in a clear and impactful manner. Through visualization, I learned how storytelling with data can help stakeholders quickly understand important business trends and outcomes.
+
+This project not only enhanced my technical skills in data cleaning, analysis, and visualization but also improved my problem-solving, critical thinking, and analytical abilities. It provided valuable hands-on experience in working with data and strengthened my understanding of how data analytics is used to solve real-world problems. Overall, this internship was a significant step in my journey toward becoming a skilled Data Analyst and Data Science professional.
