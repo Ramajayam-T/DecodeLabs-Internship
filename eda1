@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Generating a Large Dataset for EDA
+np.random.seed(10)
+data = {
+    'Order_ID': range(1001, 1501),
+    'Category': np.random.choice(['Electronics', 'Fashion', 'Home Decor', 'Groceries'], 500),
+    'Sales_Amount': np.random.randint(500, 5000, 500),
+    'Profit': np.random.randint(-200, 1000, 500),
+    'Customer_Rating': np.random.uniform(1, 5, 500),
+    'Region': np.random.choice(['North', 'South', 'East', 'West'], 500)
+}
+df = pd.DataFrame(data)
+
+# --- EDA START ---
+
+# 2. Statistical Summary
+print("--- 1. Statistical Summary ---")
+display(df.describe())
+
+# 3. Category-wise Sales (Bar Chart)
+
+plt.figure(figsize=(10, 5))
+sns.barplot(x='Category', y='Sales_Amount', data=df, palette='coolwarm', estimator=np.sum)
+plt.title('Total Sales by Category')
+plt.show()
+
+# 4. Profit vs Sales Relationship (Scatter Plot with Hue)
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Sales_Amount', y='Profit', hue='Category', data=df)
+plt.title('Sales vs Profit Analysis')
+plt.show()
+
+# 5. Profit Distribution by Region (Pie Chart)
+region_profit = df.groupby('Region')['Profit'].sum()
+plt.figure(figsize=(7, 7))
+plt.pie(region_profit, labels=region_profit.index, autopct='%1.1f%%', colors=sns.color_palette('pastel'))
+plt.title('Profit Distribution by Region')
+plt.show()
+
+# 6. Correlation Analysis (Heatmap)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(df.select_dtypes(include=[np.number]).corr(), annot=True, cmap='YlGnBu')
+plt.title('Feature Correlation Map')
+plt.show()
+
+print("\nEDA Completed Successfully! Patterns identified.")
